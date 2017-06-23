@@ -1,0 +1,16 @@
+{
+  "version": "0.1.0",
+  "command": "ruby",
+  "isShellCommand": true,
+  "tasks": [
+    {
+      "taskName": "run",
+      "args": [
+        "push_dotfiles.rb"
+      ],
+      "isBuildCommand": true,
+      "suppressTaskName": true
+    }
+  ],
+  "showOutput": "always"
+}

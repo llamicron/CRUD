@@ -1,0 +1,26 @@
+{
+  // See https://go.microsoft.com/fwlink/?LinkId=733558
+  // for the documentation about the tasks.json format
+  "version": "0.1.0",
+  "command": "crystal",
+  "isShellCommand": true,
+  "tasks": [
+    {
+      "suppressTaskName": false,
+      "taskName": "run",
+      "args": [
+        "${file}"
+      ],
+      "isBuildCommand": true
+    },
+    {
+      "taskName": "tool",
+      "args": [
+        "format",
+        "${file}"
+      ],
+      "showOutput": "never"
+    }
+  ],
+  "showOutput": "always"
+}

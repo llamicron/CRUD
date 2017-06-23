@@ -1,0 +1,13 @@
+name: create_repo
+version: 0.1.0
+
+authors:
+  - Luke Sweeney <luke@thesweeneys.org>
+
+dependencies:
+  stdio:
+    github: mosop/stdio
+
+crystal: 0.22.0
+
+license: MIT

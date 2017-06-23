@@ -1,0 +1,16 @@
+name: connect
+version: 0.1.0
+
+authors:
+  - name <luke@thesweeneys.org>
+
+# description: |
+#   Short description of connect
+
+dependencies:
+  terminal_table:
+    github: benoist/terminal_table.cr
+  ssh2:
+    github: datanoise/ssh2.cr
+
+license: MIT
