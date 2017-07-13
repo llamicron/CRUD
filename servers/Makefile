@@ -1,9 +1,9 @@
 build:
-	crystal build connect.cr
+	crystal build servers.cr
 
 run:
-	crystal run connect.cr
+	crystal run servers.cr
 
 install:
-	crystall build connect.cr
-	cp ./connect ~/bin/connect
+	crystall build servers.cr
+	cp ./servers ~/bin/servers
