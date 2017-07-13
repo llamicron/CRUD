@@ -1,11 +1,9 @@
-name: connect
+name: servers
 version: 0.1.0
 
 authors:
   - name <luke@thesweeneys.org>
 
-# description: |
-#   Short description of connect
 
 dependencies:
   terminal_table:

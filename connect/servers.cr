@@ -10,7 +10,7 @@ else
   args.shift
 end
 
-storage = File.expand_path("~/.connect.yml")
+storage = File.expand_path("~/.servers.yml")
 unless File.empty?(storage)
   servers = YAML.parse(File.read(storage)).as_h
 else
