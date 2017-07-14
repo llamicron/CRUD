@@ -14,9 +14,11 @@ servers = {} of String => Tuple(String, String)
 
 storage = File.expand_path("~/.servers.yml")
 
-unless File.empty?(storage)
-  YAML.parse(File.read(storage)).each do |name, address|
-    servers[name.to_s] = {address[0].to_s, address[1].to_s}
+if File.exists?(storage)
+  unless File.empty?(storage)
+    YAML.parse(File.read(storage)).each do |name, address|
+      servers[name.to_s] = {address[0].to_s, address[1].to_s}
+    end
   end
 end
 
@@ -46,10 +48,13 @@ when "help"
   puts <<-help
     <-- servers -->
 
+    Important: You need to have ssh keys setup on the server you want to connect to
+
     Commands:
-    servers list          :   List all stored servers
-    servers add           :   Store a new server
-    server connect [name] :   Connect to a server
+    servers list           :   List all stored servers
+    servers add            :   Store a new server
+    servers connect [name] :   Connect to a server
+    servers clear          :   Erases all stored servers (Caution)
 
     ---
 
@@ -67,4 +72,15 @@ when "connect"
   end
   server = servers[server_name]
   system("ssh #{server[0]}@#{server[1]}")
+when "clear"
+  print "Are you sure you want to erase all stored servers? This can't be undone [y/n]: "
+  choice = gets
+  if choice
+    if choice.to_s == "y"
+      File.delete(storage)
+      puts "Cleared"
+    else
+      puts "Nothing cleared"
+    end
+  end
 end
