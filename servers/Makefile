@@ -5,5 +5,5 @@ run:
 	crystal run servers.cr
 
 install:
-	crystall build servers.cr
+	crystal build servers.cr
 	cp ./servers ~/bin/servers
