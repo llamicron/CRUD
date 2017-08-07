@@ -1,4 +1,3 @@
-servers
 .shards/
 lib/
 shard.lock
