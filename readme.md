@@ -12,12 +12,12 @@ I'm am leaving the original repo there, but it will no longer be updated.
 
 All of these use `make`, so go into the repo you want and run `make install`. Pretty simple. Most are Crystal lang/Ruby, so you may want to have those installed.
 
-## connect
-This one is the most unfinished, it doesn't really work at this point. You should be able to store ip addresses for your servers, raspberry pis, etc with a human-readable name. then run
+## Servers
+You should be able to store ip addresses for your servers, raspberry pis, etc with a human-readable name. then run
 ```
-$ connect to [name]
+$ servers connect [name]
 ```
-to open up an ssh session. So far I can't seem to open an ssh session from Crystal, so right now it just stores and lists server names and ips. See it's readme for more info.
+to open up an ssh session.
 
 ## create_repo
 This will create a repository on Github through the command line, as opposed to using the web interface. Good for rapid prototying where you don't want to mess up your flow. Takes seconds, and gives you a clickable link, if your terminal supports it. Run this and it will take you through the steps (after installing it (`make install`)):
