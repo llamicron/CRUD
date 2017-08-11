@@ -6,6 +6,9 @@ unless ARGV.size == 2
   print "Repository name: "
   repo_name = gets.to_s.chomp
 else
+  if ARGV.include? "--login"
+    CreateRepo::login
+  end
   username = ARGV[0]
   repo_name = ARGV[1]
 end
