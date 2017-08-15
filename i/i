@@ -15,7 +15,7 @@ with open(storage_file, 'r') as file:
     try:
         server_list = json.load(file)
     except ValueError:
-        server_list = {}
+        server_list = []
 
 
 def print_server_table(servers):
@@ -75,6 +75,7 @@ def add_server(server_list):
     if not server:
         server = ask_for_args()
 
+    # print(server_list)
     server_list.append(server)
 
 
@@ -90,12 +91,7 @@ def connect():
         if entry["name"] == name:
             server = entry
 
-    # print("ssh %s@%s" % (server['username'], server['ip']))
     os.system("ssh %s@%s" % (server['username'], server['ip']))
-
-
-def clear_servers(server_list):
-    server_list = {}
 
 
 def parse_args_for_removal(server_list):
@@ -150,7 +146,7 @@ if len(sys.argv) > 1:
     elif sys.argv[1] == "connect":
         connect()
     elif sys.argv[1] == "clear":
-        clear_servers(server_list)
+        server_list = []
     elif sys.argv[1] == "remove":
         remove_server(server_list)
     elif sys.argv[1] == "help":
