@@ -1,0 +1,31 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+AsciiTable	../i/i.py	/^from terminaltables import AsciiTable$/;"	kind:namespace	line:4
+CreateRepo	../create_repo_python/create_repo.py	/^class CreateRepo:$/;"	kind:class	line:5
+CreateRepo	../create_repo_python/test_create_repo.py	/^from create_repo import CreateRepo$/;"	kind:namespace	line:3
+CreateRepoTestCase	../create_repo_python/test_create_repo.py	/^class CreateRepoTestCase(unittest.TestCase):$/;"	kind:class	line:5
+__init__	../create_repo_python/create_repo.py	/^    def __init__(self):$/;"	kind:member	line:6
+argv	../create_repo_python/create_repo.py	/^from sys import argv$/;"	kind:namespace	line:1
+create_creds_file	../create_repo_python/create_repo.py	/^    def create_creds_file(self):$/;"	kind:member	line:22
+create_repo.py	../create_repo_python/create_repo.py	1;"	kind:file	line:1
+delete_creds_file	../create_repo_python/create_repo.py	/^    def delete_creds_file(self):$/;"	kind:member	line:17
+get_creds_from_file	../create_repo_python/create_repo.py	/^    def get_creds_from_file(self):$/;"	kind:member	line:11
+i.py	../i/i.py	1;"	kind:file	line:1
+json	../i/i.py	/^import json$/;"	kind:namespace	line:2
+os	../create_repo_python/create_repo.py	/^import os$/;"	kind:namespace	line:2
+os	../create_repo_python/test_create_repo.py	/^import os$/;"	kind:namespace	line:2
+os	../i/i.py	/^import os$/;"	kind:namespace	line:5
+print_server_table	../i/i.py	/^def print_server_table(servers):$/;"	kind:function	line:34
+server_list	../i/i.py	/^        server_list = json.load(file)$/;"	kind:variable	line:16
+server_list	../i/i.py	/^        server_list = {}$/;"	kind:variable	line:18
+setUp	../create_repo_python/test_create_repo.py	/^    def setUp(self):$/;"	kind:member	line:6
+storage_file	../i/i.py	/^storage_file = os.path.expanduser("~") + "\/.i"$/;"	kind:variable	line:7
+sys	../i/i.py	/^import sys$/;"	kind:namespace	line:3
+test_create_repo.py	../create_repo_python/test_create_repo.py	1;"	kind:file	line:1
+test_read_from_credentials_file	../create_repo_python/test_create_repo.py	/^    def test_read_from_credentials_file(self):$/;"	kind:member	line:9
+unittest	../create_repo_python/test_create_repo.py	/^import unittest$/;"	kind:namespace	line:1
+write_creds_to_file	../create_repo_python/create_repo.py	/^    def write_creds_to_file(self):$/;"	kind:member	line:29

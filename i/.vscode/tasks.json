@@ -1,0 +1,13 @@
+{
+  "tasks": [
+    {
+      "taskName": "run",
+      "suppressTaskName": true,
+      "command": "python",
+      "args": [
+        "i.py"
+      ],
+      "isBuildCommand": true
+    }
+  ]
+}
