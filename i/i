@@ -1,7 +1,9 @@
-#!/usr/bin/python
+#!/Users/llamicron/python_env/bin/python
+##!/usr/bin/python
 import json
 import sys
 from terminaltables import AsciiTable
+import bcolors
 import os
 
 storage_file = os.path.expanduser("~") + "/.i"
@@ -18,19 +20,39 @@ with open(storage_file, 'r') as file:
         server_list = []
 
 
-def print_server_table(servers):
+def print_server_table(servers, search=None):
     table_data = [
         ["Name", "Address", "Location"]
     ]
+
+    if search:
+        for server in servers:
+            if server['name'] == search:
+                table_data.append([
+                    bcolors.OKGREEN + server['name'] + bcolors.ENDC,
+                    server['username'] + "@" + server['ip'],
+                    server['location']
+                ])
+                table = AsciiTable(table_data)
+                print(bcolors.OKGREEN + "Server found: " + bcolors.ENDC)
+                print(table.table)
+                return True
+
+        if len(table_data) == 1:
+            print(bcolors.FAIL + "i: Couldn't find that server, try another" + bcolors.ENDC)
+            return False
+
     for server in servers:
-        table_data.append([
-            server['name'],
-            server['username'] + "@" + server['ip'],
-            server['location']
-        ])
+        if server['name'] == search:
+            table_data.append([
+                server['name'],
+                server['username'] + "@" + server['ip'],
+                server['location']
+            ])
 
     table = AsciiTable(table_data)
     print(table.table)
+    return True
 
 
 def parse_add_args():
@@ -80,7 +102,6 @@ def add_server(server_list):
 
 
 def connect():
-    print(sys.argv)
     if len(sys.argv) == 3:
         name = sys.argv[2]
     else:
@@ -91,7 +112,14 @@ def connect():
         if entry["name"] == name:
             server = entry
 
-    os.system("ssh %s@%s" % (server['username'], server['ip']))
+
+    try:
+        os.system("ssh %s@%s" % (server['username'], server['ip']))
+    except UnboundLocalError:
+        print("\ni: Unknown server: %s\n" % name)
+        print("Known servers: ")
+        print_server_table(server_list)
+        return False
 
 
 def parse_args_for_removal(server_list):
@@ -140,7 +168,10 @@ if len(sys.argv) == 1:
 
 if len(sys.argv) > 1:
     if sys.argv[1] == "list":
-        print_server_table(server_list)
+        try:
+            print_server_table(server_list, search=sys.argv[3])
+        except IndexError:
+            print_server_table(server_list)
     elif sys.argv[1] == "add":
         add_server(server_list)
     elif sys.argv[1] == "connect":
@@ -151,6 +182,23 @@ if len(sys.argv) > 1:
         remove_server(server_list)
     elif sys.argv[1] == "help":
         print(help_page())
+    else:
+        print("\ni: Not a recognized command: %s\n" % sys.argv[1])
+        print("Commands are: ")
+        print("""
+            +------------------------------------------+-----------------------------------------+
+            | Command                                  | Description                             |
+            +------------------------------------------+-----------------------------------------+
+            | list                                     | Display a table with all stored servers |
+            | add <name> <username>@<ip> -l <location> | Add a new server. Location is optional  |
+            |                                          |    (If your server name has spaces,     |
+            |                                          |    surround it in quotes (""))          |
+            | remove <name>                            | Remove a server                         |
+            | connect <name>                           | Connect to a server (SSH)               |
+            | clear                                    | Clear all servers (caution)             |
+            | help                                     | Display this page                       |
+            +------------------------------------------+-----------------------------------------+
+        """)
 
 
 # Write new server_list to file
