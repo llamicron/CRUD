@@ -1,13 +1,10 @@
 {
   "tasks": [
     {
-      "taskName": "run",
+      "taskName": "test",
       "suppressTaskName": true,
-      "command": "python",
-      "args": [
-        "i.py"
-      ],
-      "isBuildCommand": true
+      "command": "pytest",
+      "isTestCommand": true
     }
   ]
 }
