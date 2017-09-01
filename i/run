@@ -22,9 +22,9 @@ parser.add_argument(
 )
 parser.add_argument(
     "-n",
-    help="Name of server to connect to, eg. 'i connect -n [server_name]'",
-    dest="connect_to",
-    metavar="connect to"
+    help="Name of a server, eg. 'i connect -n [server_name]'",
+    dest="server_name",
+    metavar="server name"
 )
 args = parser.parse_args()
 
@@ -35,8 +35,22 @@ if args.command == "list":
         print(i.server_table().table)
 
 if args.command == "connect":
-    if args.connect_to:
-        server_name = args.connect_to
+    if args.server_name:
+        server_name = args.server_name
     else:
         server_name = raw_input("Server name: ")
     i.connect(server_name)
+
+if args.command == "add":
+    server = i.ask_for_server_info()
+    i.add(server)
+    print("Added")
+
+if args.command == "remove":
+    if args.server_name:
+        server_name = args.server_name
+    else:
+        server_name = raw_input("Server name: ")
+
+    i.remove(server_name)
+    print("Removed")
