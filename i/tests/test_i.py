@@ -13,7 +13,7 @@ class ITestCase(unittest.TestCase):
             file = os.path.expanduser("~") + "/.i.test"
         )
         # Populate server list with seed data
-        self.i.server_list = seed_data.server_list
+        self.i.servers = seed_data.servers
         self.i.store_server_list()
 
     def test_has_storage_file(self):
@@ -28,7 +28,7 @@ class ITestCase(unittest.TestCase):
         assert self.i.store_server_list()
 
     def test_load_server_list_from_file(self):
-        assert isinstance(self.i.server_list, list)
+        assert isinstance(self.i.servers, list)
         # Clear the file
         with open(self.i.file, "w") as file:
             file.truncate(0)
@@ -76,30 +76,28 @@ class ITestCase(unittest.TestCase):
 
     def test_add_server(self):
         # Get some valid test server data
-        good_server = copy.deepcopy(seed_data.server_list[0])
+        good_server = copy.deepcopy(seed_data.servers[0])
 
-        old_size = len(self.i.server_list)
+        old_size = len(self.i.servers)
 
         self.i.add(good_server)
-        assert len(self.i.server_list) == old_size + 1
+        assert len(self.i.servers) == old_size + 1
 
     def test_add_bad_server(self):
         # Get some valid test server data
-        bad_server = copy.deepcopy(seed_data.server_list[1])
-        # Make it invalid
-        bad_server['name'] = ""
+        bad_server = copy.deepcopy(seed_data.bad_servers[1])
 
         assert not self.i.add(bad_server)
 
     def test_remove_server(self):
-        server = copy.deepcopy(seed_data.extra_server_list[0])
-        old_size = len(self.i.server_list)
+        server = copy.deepcopy(seed_data.extra_servers[0])
+        old_size = len(self.i.servers)
 
         assert self.i.add(server)
-        assert len(self.i.server_list) == old_size + 1
+        assert len(self.i.servers) == old_size + 1
 
         assert self.i.remove(server['name'])
-        assert len(self.i.server_list) == old_size
+        assert len(self.i.servers) == old_size
 
 
     def tearDown(self):

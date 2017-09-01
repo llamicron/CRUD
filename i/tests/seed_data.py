@@ -1,4 +1,4 @@
-server_list = [
+servers = [
     {
         "username": "pi",
         "ip": "165.123.1258.28",
@@ -33,7 +33,8 @@ server_list = [
     }
 ]
 
-bad_server_list = [
+# Invalid servers
+bad_servers = [
     {
         "username": "luke",
         "ip": "",
@@ -50,7 +51,7 @@ bad_server_list = [
 
 # These are servers that won't get put in the testing file
 # For testing adding and removing servers
-extra_server_list = [
+extra_servers = [
     {
         "name": "extra",
         "username": "pi",

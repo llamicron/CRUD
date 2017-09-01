@@ -13,7 +13,7 @@ class I:
 
         self._create_file()
 
-        self.server_list = self.get_server_list()
+        self.servers = self.get_server_list()
 
     def _create_file(self):
         if not os.path.isfile(self.file):
@@ -31,14 +31,14 @@ class I:
 
     def store_server_list(self):
         with open(self.file, "w") as file:
-            json.dump(self.server_list, file, indent = 2)
+            json.dump(self.servers, file, indent = 2)
         return True
 
     def server_table(self):
         table_data = [
             ["Name", "Address", "Location"]
         ]
-        for server in self.server_list:
+        for server in self.servers:
             row = [
                 server['name'],
                 server['username'] + "@" + server['ip'],
@@ -51,7 +51,7 @@ class I:
         return AsciiTable(table_data)
 
     def find(self, find):
-        for server in self.server_list:
+        for server in self.servers:
             if find in server['name']:
                 table_data = [["Name", "Address", "Location"]]
                 row = [
@@ -66,7 +66,7 @@ class I:
 
 
     def connect(self, server_name): # pragma: no cover
-        for server in self.server_list:
+        for server in self.servers:
             if server['name'] == server_name:
                 # os.system('cls' if os.name == 'nt' else 'clear')
                 os.system("ssh %s" % server['username'] + "@" + server['ip'])
@@ -95,13 +95,13 @@ class I:
     def add(self, server):
         if not self.validate(server):
             return False
-        self.server_list.append(server)
+        self.servers.append(server)
         self.store_server_list()
         return True
 
     def remove(self, server_name):
-        for server in self.server_list:
+        for server in self.servers:
             if server['name'] == server_name:
-                self.server_list.remove(server)
+                self.servers.remove(server)
         self.store_server_list()
         return True
