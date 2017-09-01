@@ -92,7 +92,15 @@ class ITestCase(unittest.TestCase):
         assert not self.i.add(bad_server)
 
     def test_remove_server(self):
-        pass
+        server = copy.deepcopy(seed_data.extra_server_list[0])
+        old_size = len(self.i.server_list)
+
+        assert self.i.add(server)
+        assert len(self.i.server_list) == old_size + 1
+
+        assert self.i.remove(server['name'])
+        assert len(self.i.server_list) == old_size
+
 
     def tearDown(self):
         os.remove(self.i.file)

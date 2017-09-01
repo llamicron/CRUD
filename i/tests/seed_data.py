@@ -47,3 +47,14 @@ bad_server_list = [
         "location": "Right over there"
     },
 ]
+
+# These are servers that won't get put in the testing file
+# For testing adding and removing servers
+extra_server_list = [
+    {
+        "name": "extra",
+        "username": "pi",
+        "ip": "190.213.48.34",
+        "location": ""
+    }
+]
