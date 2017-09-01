@@ -4,29 +4,87 @@
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.8	//
-AsciiTable	../i	/^from terminaltables import AsciiTable$/;"	kind:namespace	line:5
-BOLD	../bcolors.py	/^BOLD = '\\033[1m'$/;"	kind:variable	line:7
-ENDC	../bcolors.py	/^ENDC = '\\033[0m'$/;"	kind:variable	line:6
-FAIL	../bcolors.py	/^FAIL = '\\033[91m'$/;"	kind:variable	line:5
-HEADER	../bcolors.py	/^HEADER = '\\033[95m'$/;"	kind:variable	line:1
-OKBLUE	../bcolors.py	/^OKBLUE = '\\033[94m'$/;"	kind:variable	line:2
-OKGREEN	../bcolors.py	/^OKGREEN = '\\033[92m'$/;"	kind:variable	line:3
-UNDERLINE	../bcolors.py	/^UNDERLINE = '\\033[4m'$/;"	kind:variable	line:8
-WARNING	../bcolors.py	/^WARNING = '\\033[93m'$/;"	kind:variable	line:4
-add_server	../i	/^def add_server(server_list):$/;"	kind:function	line:95
-ask_for_args	../i	/^def ask_for_args():$/;"	kind:function	line:82
-bcolors	../i	/^import bcolors$/;"	kind:namespace	line:6
-bcolors.py	../bcolors.py	1;"	kind:file	line:1
-connect	../i	/^def connect():$/;"	kind:function	line:104
-help_page	../i	/^def help_page():$/;"	kind:function	line:142
-i	../i	1;"	kind:file	line:1
-json	../i	/^import json$/;"	kind:namespace	line:3
-os	../i	/^import os$/;"	kind:namespace	line:7
-parse_add_args	../i	/^def parse_add_args():$/;"	kind:function	line:58
-parse_args_for_removal	../i	/^def parse_args_for_removal(server_list):$/;"	kind:function	line:125
-print_server_table	../i	/^def print_server_table(servers, search=None):$/;"	kind:function	line:23
-remove_server	../i	/^def remove_server(server_list):$/;"	kind:function	line:136
-server_list	../i	/^        server_list = []$/;"	kind:variable	line:20
-server_list	../i	/^        server_list = json.load(file)$/;"	kind:variable	line:18
-storage_file	../i	/^storage_file = os.path.expanduser("~") + "\/.i"$/;"	kind:variable	line:9
-sys	../i	/^import sys$/;"	kind:namespace	line:4
+AsciiTable	../i/i.py	/^from terminaltables import AsciiTable$/;"	kind:namespace	line:4
+AsciiTable	../tests/test_i.py	/^from terminaltables import AsciiTable$/;"	kind:namespace	line:6
+BOLD	../i/bcolors.py	/^BOLD = '\\033[1m'$/;"	kind:variable	line:7
+BcolorsTestCase	../tests/test_bcolors.py	/^class BcolorsTestCase(unittest.TestCase):$/;"	kind:class	line:5
+ENDC	../i/bcolors.py	/^ENDC = '\\033[0m'$/;"	kind:variable	line:6
+FAIL	../i/bcolors.py	/^FAIL = '\\033[91m'$/;"	kind:variable	line:5
+HEADER	../i/bcolors.py	/^HEADER = '\\033[95m'$/;"	kind:variable	line:1
+I	../i/i.py	/^class I:$/;"	kind:class	line:6
+I	../run	/^from i.i import I$/;"	kind:namespace	line:2
+I	../tests/test_i.py	/^from ..i.i import I$/;"	kind:namespace	line:7
+ITestCase	../tests/test_i.py	/^class ITestCase(unittest.TestCase):$/;"	kind:class	line:9
+OKBLUE	../i/bcolors.py	/^OKBLUE = '\\033[94m'$/;"	kind:variable	line:2
+OKGREEN	../i/bcolors.py	/^OKGREEN = '\\033[92m'$/;"	kind:variable	line:3
+SeedDataTestCase	../tests/test_seed_data.py	/^class SeedDataTestCase(unittest.TestCase):$/;"	kind:class	line:4
+UNDERLINE	../i/bcolors.py	/^UNDERLINE = '\\033[4m'$/;"	kind:variable	line:8
+WARNING	../i/bcolors.py	/^WARNING = '\\033[93m'$/;"	kind:variable	line:4
+__init__	../i/i.py	/^    def __init__(self, file = None):$/;"	kind:member	line:8
+__init__.py	../__init__.py	1;"	kind:file	line:1
+__init__.py	../i/__init__.py	1;"	kind:file	line:1
+__init__.py	../tests/__init__.py	1;"	kind:file	line:1
+_create_file	../i/i.py	/^    def _create_file(self):$/;"	kind:member	line:18
+action	../run	/^    action="store",$/;"	kind:variable	line:12
+add	../i/i.py	/^    def add(self, server):$/;"	kind:member	line:95
+argparse	../run	/^import argparse$/;"	kind:namespace	line:3
+args	../run	/^args = parser.parse_args()$/;"	kind:variable	line:30
+ask_for_server_info	../i/i.py	/^    def ask_for_server_info(self): # pragma: no cover$/;"	kind:member	line:81
+bad_server_list	../tests/seed_data.py	/^bad_server_list = [$/;"	kind:variable	line:36
+bcolors	../tests/test_bcolors.py	/^from ..i import bcolors$/;"	kind:namespace	line:3
+bcolors.py	../i/bcolors.py	1;"	kind:file	line:1
+choices	../run	/^    choices=["list", "connect", "add", "remove"],$/;"	kind:variable	line:13
+connect	../i/i.py	/^    def connect(self, server_name): # pragma: no cover$/;"	kind:member	line:68
+copy	../tests/test_i.py	/^import copy$/;"	kind:namespace	line:5
+dest	../run	/^    dest="connect_to",$/;"	kind:variable	line:27
+dest	../run	/^    dest="find",$/;"	kind:variable	line:21
+find	../i/i.py	/^    def find(self, find):$/;"	kind:member	line:53
+get_server_list	../i/i.py	/^    def get_server_list(self):$/;"	kind:member	line:24
+help	../run	/^    help="Command to run. Options are ['list', 'connect', 'add', 'remove']",$/;"	kind:variable	line:15
+help	../run	/^    help="Find a server",$/;"	kind:variable	line:20
+help	../run	/^    help="Name of server to connect to",$/;"	kind:variable	line:26
+i	../run	/^i = I(file="\/Users\/llamicron\/.i")$/;"	kind:variable	line:6
+i.py	../i/i.py	1;"	kind:file	line:1
+json	../i/i.py	/^import json$/;"	kind:namespace	line:3
+json	../tests/test_i.py	/^import json$/;"	kind:namespace	line:2
+metavar	../run	/^    metavar="Connect to"$/;"	kind:variable	line:28
+metavar	../run	/^    metavar="command"$/;"	kind:variable	line:16
+metavar	../run	/^    metavar="find"$/;"	kind:variable	line:22
+os	../i/i.py	/^import os$/;"	kind:namespace	line:2
+os	../run	/^import os$/;"	kind:namespace	line:4
+os	../tests/test_i.py	/^import os$/;"	kind:namespace	line:3
+parser	../run	/^parser = argparse.ArgumentParser(description="Connect to servers")$/;"	kind:variable	line:8
+remove	../i/i.py	/^    def remove(self, server_name):$/;"	kind:member	line:102
+run	../run	1;"	kind:file	line:1
+seed_data	../tests/test_i.py	/^import seed_data$/;"	kind:namespace	line:4
+seed_data	../tests/test_seed_data.py	/^from ..i import seed_data$/;"	kind:namespace	line:2
+seed_data.py	../tests/seed_data.py	1;"	kind:file	line:1
+server	../run	/^    server = i.ask_for_server_info()$/;"	kind:variable	line:47
+server_list	../tests/seed_data.py	/^server_list = [$/;"	kind:variable	line:1
+server_name	../run	/^        server_name = args.connect_to$/;"	kind:variable	line:40
+server_name	../run	/^        server_name = raw_input("Server name: ")$/;"	kind:variable	line:42
+server_name	../run	/^    server_name = raw_input("Server to remove: ")$/;"	kind:variable	line:52
+server_table	../i/i.py	/^    def server_table(self):$/;"	kind:member	line:37
+setUp	../tests/test_i.py	/^    def setUp(self):$/;"	kind:member	line:11
+store_server_list	../i/i.py	/^    def store_server_list(self):$/;"	kind:member	line:32
+tearDown	../tests/test_i.py	/^    def tearDown(self):$/;"	kind:member	line:97
+test_add_bad_server	../tests/test_i.py	/^    def test_add_bad_server(self):$/;"	kind:member	line:86
+test_add_server	../tests/test_i.py	/^    def test_add_server(self):$/;"	kind:member	line:77
+test_bcolors.py	../tests/test_bcolors.py	1;"	kind:file	line:1
+test_colors	../tests/test_bcolors.py	/^    def test_colors(self):$/;"	kind:member	line:6
+test_default_storage_file	../tests/test_i.py	/^    def test_default_storage_file(self):$/;"	kind:member	line:23
+test_find_server	../tests/test_i.py	/^    def test_find_server(self):$/;"	kind:member	line:47
+test_has_storage_file	../tests/test_i.py	/^    def test_has_storage_file(self):$/;"	kind:member	line:19
+test_i.py	../tests/test_i.py	1;"	kind:file	line:1
+test_load_server_list_from_file	../tests/test_i.py	/^    def test_load_server_list_from_file(self):$/;"	kind:member	line:30
+test_remove_server	../tests/test_i.py	/^    def test_remove_server(self):$/;"	kind:member	line:94
+test_seed_data.py	../tests/test_seed_data.py	1;"	kind:file	line:1
+test_server_table	../tests/test_i.py	/^    def test_server_table(self):$/;"	kind:member	line:38
+test_server_validation	../tests/test_i.py	/^    def test_server_validation(self):$/;"	kind:member	line:59
+test_store_server_list	../tests/test_i.py	/^    def test_store_server_list(self):$/;"	kind:member	line:27
+test_valid_list	../tests/test_seed_data.py	/^    def test_valid_list(self):$/;"	kind:member	line:5
+type	../run	/^    type=str,$/;"	kind:variable	line:14
+unittest	../tests/test_bcolors.py	/^import unittest$/;"	kind:namespace	line:2
+unittest	../tests/test_i.py	/^import unittest$/;"	kind:namespace	line:1
+unittest	../tests/test_seed_data.py	/^import unittest$/;"	kind:namespace	line:1
+validate	../i/i.py	/^    def validate(self, server):$/;"	kind:member	line:75

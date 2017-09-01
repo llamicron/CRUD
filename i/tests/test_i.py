@@ -2,6 +2,7 @@ import unittest
 import json
 import os
 import seed_data
+import copy
 from terminaltables import AsciiTable
 from ..i.i import I
 
@@ -42,6 +43,56 @@ class ITestCase(unittest.TestCase):
         assert "Location" in table.table
         assert "sween" in table.table
         assert "pi" in table.table
+
+    def test_find_server(self):
+        table = self.i.find("sween")
+        assert isinstance(table, AsciiTable)
+        assert "Name" in table.table
+        assert "Address" in table.table
+        assert "sween" in table.table
+        assert "llaminator" not in table.table
+        table = self.i.find("Not a server lol")
+        assert "Name" in table.table
+        assert "Address" in table.table
+        assert "sween" not in table.table
+
+    def test_server_validation(self):
+        good_server = {
+            "name": "a server name",
+            "username": "pi",
+            "ip": "123.456.789",
+            "location": "Right here"
+        }
+        bad_server = {
+            "name": "",
+            "username": "no name",
+            "ip": "123123",
+            "location": "Over der"
+        }
+
+        assert self.i.validate(good_server)
+
+        assert not self.i.validate(bad_server)
+
+    def test_add_server(self):
+        # Get some valid test server data
+        good_server = copy.deepcopy(seed_data.server_list[0])
+
+        old_size = len(self.i.server_list)
+
+        self.i.add(good_server)
+        assert len(self.i.server_list) == old_size + 1
+
+    def test_add_bad_server(self):
+        # Get some valid test server data
+        bad_server = copy.deepcopy(seed_data.server_list[1])
+        # Make it invalid
+        bad_server['name'] = ""
+
+        assert not self.i.add(bad_server)
+
+    def test_remove_server(self):
+        pass
 
     def tearDown(self):
         os.remove(self.i.file)

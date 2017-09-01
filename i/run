@@ -20,6 +20,12 @@ parser.add_argument(
     dest="find",
     metavar="find"
 )
+parser.add_argument(
+    "-n",
+    help="Name of server to connect to, eg. 'i connect -n [server_name]'",
+    dest="connect_to",
+    metavar="connect to"
+)
 args = parser.parse_args()
 
 if args.command == "list":
@@ -27,3 +33,10 @@ if args.command == "list":
         print(i.find(args.find).table)
     else:
         print(i.server_table().table)
+
+if args.command == "connect":
+    if args.connect_to:
+        server_name = args.connect_to
+    else:
+        server_name = raw_input("Server name: ")
+    i.connect(server_name)

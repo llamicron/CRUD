@@ -11,6 +11,14 @@ server_list = [
         "name": "sween",
         "location": "Dining Room"
     },
+    # This one doesn't have a location for testing purposes. It's not required.
+    # Don't delete the field, just leave it empty
+    {
+        "username": "luke",
+        "ip": "192.168.0.123",
+        "name": "No location",
+        "location": ""
+    },
     {
         "username": "pi",
         "ip": "192.168.0.169",
@@ -23,4 +31,19 @@ server_list = [
         "name": "llaminator",
         "location": "Bedroom"
     }
+]
+
+bad_server_list = [
+    {
+        "username": "luke",
+        "ip": "",
+        "name": "No location",
+        "location": ""
+    },
+    {
+        "username": "",
+        "ip": "192.168.0.123",
+        "name": "No location",
+        "location": "Right over there"
+    },
 ]

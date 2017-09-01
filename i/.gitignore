@@ -1,3 +1,6 @@
 htmlcov
 tests/__pycache__
 .coverage
+build/
+dist/
+*.spec

@@ -1,4 +1,4 @@
-#!/Users/llamicron/python_env/bin/python
+#!/usr/bin/env python
 import os
 import json
 from terminaltables import AsciiTable
@@ -63,3 +63,45 @@ class I:
                 table_data.append(row)
                 return AsciiTable(table_data)
         return AsciiTable([["Name", "Address", "Location"]])
+
+
+    def connect(self, server_name): # pragma: no cover
+        for server in self.server_list:
+            if server['name'] == server_name:
+                # os.system('cls' if os.name == 'nt' else 'clear')
+                os.system("ssh %s" % server['username'] + "@" + server['ip'])
+
+
+    def validate(self, server):
+        for key, value in server.iteritems():
+            if not value and not key == "location":
+                return False
+        return True
+
+    def ask_for_server_info(self): # pragma: no cover
+        server = {}
+        server['name'] = raw_input("Name: ")
+        server['username'] = raw_input("Login username: ")
+        server['ip'] = raw_input("IP: ")
+        server['location'] = raw_input("Location (optional): ")
+
+        # Validate server info
+        if self.validate(server):
+            return server
+        else:
+            return False
+
+
+    def add(self, server):
+        if not self.validate(server):
+            return False
+        self.server_list.append(server)
+        self.store_server_list()
+        return True
+
+    def remove(self, server_name):
+        for server in self.server_list:
+            if server['name'] == server_name:
+                self.server_list.remove(server)
+        self.store_server_list()
+        return True
